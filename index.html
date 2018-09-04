@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  
+  <style>
+    .blue-border{
+      border: solid 1px blue;
+    }
+    .header-logo{
+      height: 32px;
+      margin-right: 6px;
+    }
+    .vertical-middle{
+      padding-top: 5%;
+    }
+  </style>
+
+</head>
+<body>
+  <header class="container">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <img src="https://cdn0.iconfinder.com/data/icons/ie_ICandies/64/button_57.png" id="logo" alt="Contact Manager Logo" class="header-logo">
+      <a class="navbar-brand" href="#">Contact Manager App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Services</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Custom Support Software</a>
+              <a class="dropdown-item" href="#">Banking Solution</a>
+              <a class="dropdown-item" href="#">Financial App</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Contact</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+  </header>
+
+  <main role="main" class="container" style="padding-top:60px;">
+    <div class="jumbotron text-center">
+      <h1>Welcome to Contact Manager App</h1>
+      <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam consequat felis nisi, sed varius mi cursus ut. Quisque tincidunt suscipit lectus et fringilla.</p>
+    </div>
+  </main>
+
+  <section class="container">
+    <div class="row">
+      <aside class="col-sm-3 vertical-middle text-center 
+      bg-secondary rounded">
+          <a class="btn btn-lg btn-primary" href="#" role="button" data-toggle="modal" data-target="#addContactModal">Create New Contact »</a>
+
+          <div class="modal fade" id="addContactModal" tabindex="-1" role="dialog" aria-labelledby="addContactModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Create New Contact</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body text-left">
+                  <form>
+                    <div class="form-group">
+                      <label for="nameInput">Name</label>
+                      <input type="text" class="form-control" id="nameInput" placeholder="Enter name">
+                    </div>
+                    <div class="form-group">
+                      <label for="phoneInput">Phone Number</label>
+                      <input type="phone" class="form-control" id="phoneInput" placeholder="Enter Phone">
+                    </div>
+                    <div class="form-group">
+                      <label for="companyInput">Company</label>
+                      <input type="text" class="form-control" id="companyInput" placeholder="Enter Company">
+                    </div>
+                    <div class="form-group">
+                      <label for="emailInput">Email address</label>
+                      <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" placeholder="Enter email">
+                      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                    </div>
+                    <input type="reset" id="resetBtn" style="display: none;" class="btn btn-secondary">
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+      </aside>
+
+      <div id="mainWrapper" class="col-sm-9">
+          <div class="card" style="width: 20rem;">
+            <div class="card-body">
+              <h5 class="card-title">Will Smith</h5>
+              <h6 class="card-subtitle mb-2 text-muted">Hollywood</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="card-link">+91-235534534</a>
+              <a href="#" class="card-link">will@example.com</a>
+            </div>
+          </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="container">
+    <hr>
+    <br>
+    <p class="float-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2017-2018 Contact Manager App, Inc. &middot; 
+      <a href="#">Home</a> &middot; 
+      <a href="#">Services</a> &middot; 
+      <a href="#">Products</a> &middot; 
+      <a href="#">About</a> &middot; 
+      <a href="#">Contact</a> &middot; 
+    </p>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  <script>
+    $( document ).ready(function() {
+
+      $('#addContactModal').on('shown.bs.modal', function () {
+        $('#nameInput').trigger('focus');
+      });
+
+      $('#addContactModal').on('hidden.bs.modal', function () {
+        $('#resetBtn').trigger('click');
+      });
+
+    });
+  </script>
+  
+</body>
+</html>
