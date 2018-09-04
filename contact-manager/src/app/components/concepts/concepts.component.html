@@ -1,0 +1,81 @@
+<div class="container">
+  <!-- data binding -->
+
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="si-tab" data-toggle="tab" href="#si" role="tab" aria-controls="si" aria-selected="true">SI</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pb-tab" data-toggle="tab" href="#pb" role="tab" aria-controls="pb" aria-selected="false">Property Binding</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="eb-tab" data-toggle="tab" href="#eb" role="tab" aria-controls="eb" aria-selected="false">Event Binding</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="twb-tab" data-toggle="tab" href="#twb" role="tab" aria-controls="twb" aria-selected="false">Two Way Binding</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="sd-tab" data-toggle="tab" href="#sd" role="tab" aria-controls="sd" aria-selected="false">Structural Directives</a>
+      </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="si" role="tabpanel" aria-labelledby="si-tab">
+      <ul>
+        <li>{{ link1 }} </li>
+        <!-- String Interpolation-->
+        <li>{{ link2 }}</li>
+        <li>{{ link3 }}</li>
+      </ul>
+    
+      <p> {{ add(10, 20) }} </p>
+    
+      <input type="text" value="testing">
+      <input type="text" value="{{ link1 }}">
+    </div>
+    <div class="tab-pane fade" id="pb" role="tabpanel" aria-labelledby="pb-tab">
+      <!-- Property Binding -->
+
+      <input type="text" [value]="link1">   <!--  PB -->
+
+      <div [ngClass]="'red borderDotted'">Lorem Ipsum 1....</div>    <!-- multiple valid css classes   -->
+
+      <div [ngClass]="{ green: isAuthenticated(), red: !isAuthenticated() }">Lorem Ipsum 3....</div>  <!-- classes with expression -->
+
+      <div [ngStyle]="{'font-size': getFontSize() }"> Testing Font Style </div>
+
+    </div>
+    <div class="tab-pane fade" id="eb" role="tabpanel" aria-labelledby="eb-tab">
+      <h2>Event Binding</h2>
+      <button (click)="onBtnClick($event)">Save</button>
+    </div>
+    <div class="tab-pane fade" id="twb" role="tabpanel" aria-labelledby="twb-tab">
+        <h2>Two Way Binding</h2>
+        <p>{{ link3 }}</p>
+        <input type="text" [(ngModel)]="link3">
+    </div>
+    <div class="tab-pane fade" id="sd" role="tabpanel" aria-labelledby="sd-tab">
+        <h2>Structural Directives</h2>
+        <div *ngIf="isLoggedIn">
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iure quis earum perferendis aliquid, incidunt sapiente alias, inventore dolorem nobis, veritatis debitis molestiae molestias quo nulla reprehenderit ea ullam neque fugiat.
+        </div>
+        <div *ngIf="!isLoggedIn">
+          Sorry! you are not authorized to access it.
+        </div>
+        
+        <div style="padding-top:60px;">
+          <ul>
+            <li *ngFor="let user of listOfUsers">{{ user.id }} {{ user.first_name}} </li>
+          </ul>
+        </div>
+
+        <div [ngSwitch]="age">
+          <div *ngSwitchCase="20">success</div>
+          <div *ngSwitchCase="30">failed</div>
+        </div>
+        
+    </div>
+  </div>
+
+
+</div>
+

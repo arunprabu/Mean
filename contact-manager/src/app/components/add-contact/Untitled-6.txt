@@ -1,0 +1,17 @@
+class Car {
+  constructor(_maker, _model){
+    this.maker = _maker;
+    this.model = _model;
+
+    console.log(maker + model);
+  }
+
+  drive(){
+    console.log("I am Driving " + this.maker + " " +this.model );
+  }
+
+  reverse(){
+    console.log("I am going in reverse gear in " + this.maker + " " +this.model );
+  }
+}
+
