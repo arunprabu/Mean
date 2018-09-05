@@ -13,11 +13,11 @@ export class ContactsComponent implements OnInit {
 
   //dep injection
   constructor(private router: Router, private contactService: ContactService) {
-    debugger;
+    console.log("1. Inside Constructor")
   }
 
   ngOnInit() {
-    //debugger;
+    console.log("2. Inside ngOnInit")
     this.getAllContacts();
   }
 
@@ -31,11 +31,11 @@ export class ContactsComponent implements OnInit {
     //send the req to service 
     this.contactService.getContacts()
                         .subscribe((loadedContactInfo: any) => { //receive the data from service
-                            console.log(loadedContactInfo);
-                            this.contactList = loadedContactInfo;
-                        }
-                      );
-    //receive the data from service
+                              console.log(loadedContactInfo);
+                              this.contactList = loadedContactInfo;
+                              // DOM will be mutated automatically
+                          }
+                        );
   }
   
   
