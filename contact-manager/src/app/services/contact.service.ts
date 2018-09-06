@@ -57,14 +57,13 @@ export class ContactService {
   }
 
   //4. UPDATE 
-  update(){
-    var _obj = { name: 'test'}
-    return this.httpService.put("https://jsonplaceholder.typicode.com/users/"+ 1, _obj )
+  update(newObj){
+    return this.httpService.put("https://jsonplaceholder.typicode.com/users/"+ newObj.id, newObj )
                             .pipe(map(response => {    //receive the resp from rest api 
-                              console.log(response);
-                              return response.json();   //sending it back to component thru service
-                            }
-                          ));
+                                console.log(response);
+                                return response.json();   //sending it back to component thru service
+                              }
+                            ));
   }
 
   //5. DELETE 

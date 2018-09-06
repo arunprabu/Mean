@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ContactService } from '../../services/contact.service';
 
 @Component({
@@ -9,13 +10,18 @@ import { ContactService } from '../../services/contact.service';
 export class AddContactComponent implements OnInit {
 
   contactDetails = {
-    company: {}
+    name: "",
+    email: "",
+    phone: "",
+    company: {
+      name: ""
+    }
   };
 
   isSuccess: boolean;
 
   //dep inj the service
-  constructor( private contactService: ContactService ) { 
+  constructor( private contactService: ContactService, private router: Router ) { 
 
   }
 
@@ -34,13 +40,18 @@ export class AddContactComponent implements OnInit {
                                 this.isSuccess = false;
                               }
                               console.log(savedContactInfo);
+                              setTimeout(()=>{
+                                this.router.navigate(['contacts']);                            
+                              }, 3000);
                             }
                         );
 
     //2) receive the response from services
   }
 
-  testingClick(){
-    alert("testing")
+  ngOnDestroy(){
+    console.log("Testing destroy");
+    
   }
+
 }

@@ -16,7 +16,10 @@
     </li>
     <li class="nav-item">
         <a class="nav-link" id="sd-tab" data-toggle="tab" href="#sd" role="tab" aria-controls="sd" aria-selected="false">Structural Directives</a>
-      </li>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="pipes-tab" data-toggle="tab" href="#pipes" role="tab" aria-controls="pipes" aria-selected="false">Pipes</a>
+    </li>
   </ul>
   <div class="tab-content" id="myTabContent">
     <div class="tab-pane fade show active" id="si" role="tabpanel" aria-labelledby="si-tab">
@@ -73,6 +76,21 @@
           <div *ngSwitchCase="30">failed</div>
         </div>
         
+    </div>
+    <div class="tab-pane fade" id="pipes" role="tabpanel" aria-labelledby="pipes-tab">
+      <h2>Pipes Example</h2>
+      Without pipe: {{ today }}
+
+      <h3>With pipes</h3>
+      <p>Today: {{ today | date }}</p>
+      <p>FullDate: {{ today | date: 'fullDate' }} </p>
+      <p>The time is {{ today | date:'dd, MMMM yy HH:mm z'}}</p>
+
+
+      <hr>
+      <h3>Custom Pipe</h3>
+      <p>{{ loremIpsum | ellipsis: 120 }}</p> 
+      
     </div>
   </div>
 

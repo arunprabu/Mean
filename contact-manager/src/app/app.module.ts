@@ -14,14 +14,15 @@ import { AddContactComponent } from './components/add-contact/add-contact.compon
 import { AboutComponent } from './components/about/about.component';
 import { GetintouchComponent } from './components/getintouch/getintouch.component';
 import { ContactDetailComponent } from './components/contact-detail/contact-detail.component'; 
-
+import { AuthGuard } from './guards/auth.guard';
+import { EllipsisPipe } from './pipes/ellipsis.pipe';
 
 //creating routes with path and component
 const APP_ROUTES: Routes = [
   { path: '', component: ConceptsComponent },
   { path: 'contacts', component: ContactsComponent },
   { path: 'contacts/:id', component: ContactDetailComponent },
-  { path: 'add', component: AddContactComponent },
+  { path: 'add', component: AddContactComponent, canActivate: [AuthGuard] },
   { path: 'about', component: AboutComponent },
   { path: 'get-in-touch', component: GetintouchComponent }
 ];
@@ -38,7 +39,8 @@ const APP_ROUTES: Routes = [
     AddContactComponent,
     AboutComponent,
     GetintouchComponent,
-    ContactDetailComponent
+    ContactDetailComponent,
+    EllipsisPipe
   ],
   imports: [
     BrowserModule,

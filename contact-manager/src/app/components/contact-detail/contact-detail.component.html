@@ -43,23 +43,29 @@
           </div>
           <div class="form-group">
             <label for="companyInput">Company</label>
-            <input type="text" class="form-control" id="companyInput" name="newCompany" [(ngModel)]="editableContactObj.company"
+            <input type="text" class="form-control" id="companyInput" name="newCompany" 
+            [(ngModel)]="editableContactObj.company"
               placeholder="Enter Company">
           </div>
           <div class="form-group">
             <label for="emailInput">Email address</label>
-            <input type="email" class="form-control" id="emailInput" name="newEmail" [(ngModel)]="editableContactObj.email"
+            <input type="email" class="form-control" id="emailInput" name="newEmail" 
+            [(ngModel)]="editableContactObj.email"
               aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
           </div>
           <input type="reset" id="resetBtn" style="display: none;" class="btn btn-secondary">
         </form>
+        <div class="alert alert-success" *ngIf="isUpdated">
+          The contact has been updated. Closing Modal now...
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary" (click)="updateContact()">Save changes</button>
       </div>
     </div>
+    
   </div>
 </div>
 </div>

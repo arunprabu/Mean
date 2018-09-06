@@ -17,9 +17,10 @@ export class ContactDetailComponent implements OnInit {
 
   contactID: number;
   isDeleted: boolean;
-  
-  constructor( private contactService: ContactService, private route: ActivatedRoute, private router: Router) {
+  isUpdated:boolean;
 
+  constructor( private contactService: ContactService, private route: ActivatedRoute, private router: Router) {
+    console.log("Inside Constructor");
     this.editableContactObj = {
       name: "test"
     };
@@ -31,13 +32,9 @@ export class ContactDetailComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log("Inside ngOnInit");
     //send a call to get one specific contact loaded
     this.getContactDetails(this.contactID)
-  }
-
-  isEmptyObject(obj) {
-    console.log(obj);
-    return (obj && (Object.keys(obj).length === 0));
   }
 
   getContactDetails(id){
@@ -70,33 +67,33 @@ export class ContactDetailComponent implements OnInit {
     //console.log("Test");
   }
 
-
   //edit
   openEditModal(){
     $("#editContactModal").modal('show');
     //copy of that original obj
     //show it in inputs of modal
+
     this.editableContactObj ={
       id: this.contactID,
       name: this.contactObj['name'],
       phone: this.contactObj['phone'],
       email: this.contactObj['email'],
-      company: this.contactObj['company']['name'],
+      company: this.contactObj['company']['name']
     } 
   }
 
-  //submit 
-  //1) send the updateable data to b/e
-  //2) get the resp -- 
-  // 3.1) close the modal and refresh the component upon success
-  // 3.2) if error show in modal itself and don't close
-
   updateContact(){
     console.log("Inside update ");
-    this.contactService.update()
+    //1) send the updateable data to b/e
+    this.contactService.update(this.editableContactObj)
                       .subscribe((response: any) => { //receive the data from service
                             console.log(response);
                             // DOM will be mutated automatically
+                            this.isUpdated = true;
+
+                            setTimeout(() => {
+                              $("#editContactModal").modal('hide');
+                            }, 3000);
                       });
   }
 }

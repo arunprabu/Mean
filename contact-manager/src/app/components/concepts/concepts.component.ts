@@ -31,6 +31,8 @@ export class ConceptsComponent implements OnInit {
 
   age;
 
+  today: number = Date.now();
+  
   listOfUsers = [{
     "id": "#1",
     "first_name": "Maureene",
@@ -58,7 +60,11 @@ export class ConceptsComponent implements OnInit {
     "email": "hamort4@bbb.org"
   }];
 
-  constructor() { }
+  loremIpsum: string = "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero temporibus soluta laboriosam consequuntur impedit nam incidunt blanditiis tempora repellat officiis eligendi aliquam, nisi consectetur praesentium omnis, eaque et natus quasi?";
+
+  constructor() { 
+    console.log(this.today);
+  }
 
   ngOnInit() {
   }
