@@ -4,7 +4,6 @@
       << Back </a> </h1> <div class="card col-md-12" *ngIf="contactObj">
         <div class="card-body">
           <h5 class="card-title">{{ contactObj.name }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">{{ contactObj.company.name }}</h6>
           <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
             content.</p>
           <a href="#" class="card-link">{{ contactObj.phone }}</a>
@@ -41,12 +40,12 @@
             <input type="phone" class="form-control" id="phoneInput" [(ngModel)]="editableContactObj.phone" name="newPhone"
               placeholder="Enter Phone">
           </div>
-          <div class="form-group">
+          <!-- <div class="form-group">
             <label for="companyInput">Company</label>
             <input type="text" class="form-control" id="companyInput" name="newCompany" 
             [(ngModel)]="editableContactObj.company"
               placeholder="Enter Company">
-          </div>
+          </div> -->
           <div class="form-group">
             <label for="emailInput">Email address</label>
             <input type="email" class="form-control" id="emailInput" name="newEmail" 

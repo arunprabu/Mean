@@ -18,7 +18,7 @@ export class ContactService {
     console.log(contactData);
 
     //send it to rest api 
-    return this.httpService.post("https://jsonplaceholder.typicode.com/users", contactData)
+    return this.httpService.post("http://localhost:3000/api/contacts/", contactData)
                     .pipe(map(response => {    //receive the resp from rest api 
                         console.log(response);
                         return response.json();   //sending it back to component thru service
@@ -31,7 +31,7 @@ export class ContactService {
   //2. READ 
   getContacts(){
     // receive the req from comp.
-    return this.httpService.get("https://jsonplaceholder.typicode.com/users")
+    return this.httpService.get("http://localhost:3000/api/contacts/")
                             .pipe(map(response => {    //receive the resp from rest api 
                                 console.log(response);
                                 return response.json();   //sending it back to component thru service
@@ -43,9 +43,9 @@ export class ContactService {
   }
 
   //3. READ contact details of one user
-  getContactDetails(id){
+  getContactDetails(contactId){
     // receive the req from comp.
-    return this.httpService.get("https://jsonplaceholder.typicode.com/users/"+ id)
+    return this.httpService.get("http://localhost:3000/api/contacts/"+ contactId)
                             .pipe(map(response => {    //receive the resp from rest api 
                               console.log(response);
                               return response.json();   //sending it back to component thru service
@@ -58,7 +58,7 @@ export class ContactService {
 
   //4. UPDATE 
   update(newObj){
-    return this.httpService.put("https://jsonplaceholder.typicode.com/users/"+ newObj.id, newObj )
+    return this.httpService.put("http://localhost:3000/api/contacts/"+ newObj.contactId, newObj )
                             .pipe(map(response => {    //receive the resp from rest api 
                                 console.log(response);
                                 return response.json();   //sending it back to component thru service
@@ -67,9 +67,9 @@ export class ContactService {
   }
 
   //5. DELETE 
-  deleteContact(id){
-    console.log(id);
-    return this.httpService.delete("https://jsonplaceholder.typicode.com/users/1")
+  deleteContact(contactId){
+    console.log(contactId);
+    return this.httpService.delete("http://localhost:3000/api/contacts/"+contactId)
                       .pipe(map(response => {    //receive the resp from rest api 
                         console.log(response);
                         return response.json();   //sending it back to component thru service

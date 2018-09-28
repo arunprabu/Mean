@@ -73,13 +73,17 @@ export class ContactDetailComponent implements OnInit {
     //copy of that original obj
     //show it in inputs of modal
 
-    this.editableContactObj ={
-      id: this.contactID,
-      name: this.contactObj['name'],
-      phone: this.contactObj['phone'],
-      email: this.contactObj['email'],
-      company: this.contactObj['company']['name']
-    } 
+    // this.editableContactObj ={
+    //   id: this.contactID,
+    //   name: this.contactObj['name'],
+    //   phone: this.contactObj['phone'],
+    //   email: this.contactObj['email'],
+    // } 
+
+
+    // es6 way of duplicating obj 
+    this.editableContactObj = JSON.parse(JSON.stringify(this.contactObj));
+    console.log(this.editableContactObj);
   }
 
   updateContact(){
